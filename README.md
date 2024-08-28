@@ -1,2 +1,2 @@
 # learning
-My personal learning repository.
+My sandbox repository with learning stuff and more.
