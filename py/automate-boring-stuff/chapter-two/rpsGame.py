@@ -28,7 +28,7 @@ while True: # Pętla główna gry
 
     # Wyświetlenie wyboru dokonanego przez komputer.
     randomNumber = random.randint(1, 3)
-    computerMove = ''
+    
     if randomNumber == 1:
         computerMove = 'k'
         print('KAMIEŃ')
