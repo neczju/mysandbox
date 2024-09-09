@@ -1,13 +1,14 @@
-import time, sys
+import time
+import sys
 
 indent = 0
 indentIncreasing = True
 
 try:
-    while True: # Pętla główna programu
+    while True:  # Pętla główna programu
         print(' ' * indent, end='')
         print('********')
-        time.sleep(0.1) # Wstrzymanie programu na 1/10 sekundy
+        time.sleep(0.1)  # Wstrzymanie programu na 1/10 sekundy
 
         if indentIncreasing:
             indent = indent + 1

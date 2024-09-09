@@ -4,13 +4,13 @@ def collatz(number):
     elif number % 2 == 1:
         return 3 * number + 1
 
-collatz_result = 0
-while(collatz_result != 1):
+result = 0
+while(result != 1):
     print('Podaj liczbe całkowitą: ')
     try:
         num = int(input())
-        collatz_result = collatz(num)
-        print(collatz_result)
+        result = collatz(num)
+        print(result)
     except ValueError:
         print('Błąd! Podaj liczbę całkowitą.')
 

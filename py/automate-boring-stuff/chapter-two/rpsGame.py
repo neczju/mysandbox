@@ -1,4 +1,5 @@
-import random, sys
+import random
+import sys
 
 print('KAMIEŃ, PAPIER, NOŻYCE')
 
@@ -7,15 +8,15 @@ wins = 0
 losses = 0
 ties = 0
 
-while True: # Pętla główna gry
+while True:  # Pętla główna gry
     print('%s zwycięstw, %s porażek, %s remisów' % (wins, losses, ties))
-    while True: # Pętla danych wejściowych gracza.
+    while True:  # Pętla danych wejściowych gracza.
         print('Podaj swój wybór: (k)amień, (p)apier, (n)ożyce lub (w)yjście')
         playerMove = input()
         if playerMove == 'w':
-            sys.exit() # Zakończenie działania programu.
-        if playerMove == 'k' or playerMove == 'p' or playerMove == 'n':
-            break # Opuszczenie pętli danych wejściowych gracza.
+            sys.exit()  # Zakończenie działania programu.
+        elif playerMove == 'k' or playerMove == 'p' or playerMove == 'n':
+            break  # Opuszczenie pętli danych wejściowych gracza.
         print('Wpisz literę k, p, n lub w.')
 
     # Wyświetlenie wyboru dokonanego przez gracza.
@@ -28,7 +29,7 @@ while True: # Pętla główna gry
 
     # Wyświetlenie wyboru dokonanego przez komputer.
     randomNumber = random.randint(1, 3)
-    
+    computerMove = ''
     if randomNumber == 1:
         computerMove = 'k'
         print('KAMIEŃ')
@@ -61,4 +62,3 @@ while True: # Pętla główna gry
     elif playerMove == 'n' and computerMove == 'k':
         print('Przegrałeś')
         losses = losses + 1
-
