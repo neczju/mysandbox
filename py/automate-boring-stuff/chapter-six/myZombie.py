@@ -106,4 +106,4 @@ zombies = (zombiedice.examples.RandomCoinFlipZombie(name='RandomCoinFlip'),
           TwoShotgunStopAlt(name='TwoShotgunStopAlt'),
           BotStopsWhenGunsGreaterThanBrains(name='BotStopWhenGunsGreaterThanBrains'))
 
-zombiedice.runTournament(zombies=zombies, numGames=1000)
+zombiedice.runWebGui(zombies=zombies, numGames=1000)
