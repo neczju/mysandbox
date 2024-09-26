@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import os
+import re
 
 
 def get_version():
@@ -25,10 +26,15 @@ def get_version():
 def get_download_url(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
-    download_url_piece = soup.find(id='Download').find('a')
-
+    soup = str(soup)
+    download_regex_1 = re.compile(r'downloadx([a-zA-Z0-9_.?=])+')
+    download_regex_2 = re.compile(r'x=([a-z0-9])+')
+    download_url_piece = []
+    # TODO: Nie wiem kurwa requests zwraca amp; XDXDXDXD
+    for groups in 
+    print(download_url_piece)
     base_url = 'https://optifine.net/'
-    return base_url + str(download_url_piece['href'])
+    return base_url + str(download_url_piece)
 
 
 def download(url, path):
