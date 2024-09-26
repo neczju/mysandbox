@@ -6,9 +6,10 @@ import time
 import os
 import os.path
 
-source_dir = '/home/neczju/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/b1.7.3/.minecraft/saves/'
+home_dir = os.environ['HOME']
+source_dir = home_dir + '/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/b1.7.3/.minecraft/saves/'
 target_dir = 'backups'
-backup_name = 'beta_worlds'
+backup_dir_name = 'beta_worlds'
 
 # check if target directory not exist
 if not os.path.exists(target_dir):
@@ -17,7 +18,7 @@ if not os.path.exists(target_dir):
 # checks if source direcotry exist and creates backup with current localtime
 if os.path.exists(source_dir):
     localtime_format = time.strftime('_%d_%m_%Y_%H_%M_%S', time.localtime())
-    subprocess.run(['cp', '-r', source_dir, target_dir + '/' + backup_name + localtime_format])
+    subprocess.run(['cp', '-r', source_dir, target_dir + '/' + backup_dir_name + localtime_format])
     if subprocess.CompletedProcess:
         print('Backup successfuly created in %s directory' % (target_dir))
 else:
