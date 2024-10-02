@@ -1,14 +1,20 @@
 import re
 
 
-def stripRegex(text, letter=None):
-    if letter is None:
-        spaceRemove = re.compile(r'(\s+)?(.*)(\s+)?')
-        return spaceRemove.search(text).group(2)
+def stripRegex(text, char=None):
+    if char is None:
+        spaceStart = re.compile(r'^(\s)+')
+        spaceEnd = re.compile(r'(\s)+$')
+        completeText = spaceStart.sub('', text)
+        completeText = spaceEnd.sub('', completeText)
+        return completeText
     else:
-        # TODO: Tomorrow
+        charStart = re.compile(r'^(%s)+' % char)
+        charEnd = re.compile(r'(%s)+$' % char)
+        completeText = charStart.sub('', text)
+        completeText = charEnd.sub('', completeText)
+        return completeText
 
 
-test = ' xx fasfaa'
-
-print(stripRegex(test))
+test = 'xxxxxxxfasfaaxxxxx'
+print(stripRegex(test, 'x'))
