@@ -4,22 +4,24 @@
 import subprocess
 import sys
 
+
 def build(filename, name):
     try:
         subprocess.run(['cc', filename, '-lraylib', '-o', name],
                        check=True)
         print('Compilation successful!')
-    except subprocess.CalledProcessError: # if c compiler returns error then sys.exit
+    except subprocess.CalledProcessError:  # if c compiler returns error then sys.exit
         sys.exit()
+
 
 def run(name):
     subprocess.run('./' + name, stdout=subprocess.DEVNULL)
-    if subprocess.CompletedProcess: # removes binary when subprocess is complete
+    if subprocess.CompletedProcess:  # removes binary when subprocess is complete
         subprocess.run(['rm', name])
     print(filename + ' binary file removed!')
 
 
-if len(sys.argv) < 3: # checks if user entered 2 arguments
+if len(sys.argv) < 3:  # checks if user entered 2 arguments
     print('You need to enter an argument and filename!')
     print('Example: ./rayc.py build name_of_your_file.c')
     sys.exit()
@@ -37,4 +39,3 @@ elif argument == 'run':
 else:
     print('Invalid argument!')
     sys.exit()
-
