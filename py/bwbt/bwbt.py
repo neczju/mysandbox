@@ -2,11 +2,12 @@
 # bwbt.py -- tool for backing up my minecraft beta and bta worlds
 
 import time
+from pathlib import Path
 import os
 import sys
 import shutil
 
-home_dir = os.environ['HOME']
+home_dir = Path.home()
 target_dir = 'backups'
 
 if len(sys.argv) < 2:
@@ -15,29 +16,25 @@ if len(sys.argv) < 2:
 
 argument = sys.argv[1]
 
-world_dir = ['/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/b1.7.3/.minecraft/saves/',
-             '/.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/bta_babric_instance_7.2_01/.minecraft/saves/']
+world_dir = { 'beta': '.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/b1.7.3/.minecraft/saves/', 
+             'bta': '.var/app/org.prismlauncher.PrismLauncher/data/PrismLauncher/instances/bta_babric_instance_7.2_01/.minecraft/saves/' }
 
-if argument == 'beta':  # beta backup
-    source_dir = home_dir + world_dir[0]
-    backup_filename = 'beta_worlds'
-elif argument == 'bta':  # better than adventure backup
-    source_dir = home_dir + world_dir[1]
-    backup_filename = 'bta_worlds'
+# checks if argument is in dictionary
+if argument in world_dir:
+    source_dir = Path(home_dir / world_dir[argument])
+    backup_filename = argument
 else:
     print('No argument named ' + argument + '!')
     sys.exit()
 
-
 # check if target directory not exist
-if not os.path.exists(target_dir):
-    os.mkdir(target_dir)
+if not Path(target_dir).exists():
+    Path(target_dir).mkdir() # creates backup directory
 
 # checks if source direcotry exist and creates backup with current localtime
-if os.path.exists(source_dir):
+if Path(source_dir).exists():
     localtime_format = time.strftime('_%d_%m_%Y_%H_%M_%S', time.localtime())
-    os.chdir(target_dir)
-    # makes zip archive file of saves directory
-    shutil.make_archive(backup_filename + localtime_format, 'zip', source_dir)
+    os.chdir(target_dir) # changes directory to target directory
+    shutil.make_archive(backup_filename + localtime_format, 'zip', source_dir) # makes zip archive file of saves directory
 else:
     print('Source directory does not exist :(')
