@@ -26,7 +26,9 @@ for i in range(number_questions):
         else:
             number_tries += 1
             print('Incorrect answer!')
+
     if number_tries == 3:
         print('Too many tries!')
+    time.sleep(1)
 
 print('correct answers: %s/%s' % (correct_answers, number_questions))

@@ -2,6 +2,7 @@
 # rayc.py -- program for building and running raylib programs
 
 import subprocess
+from pathlib import Path
 import sys
 
 
@@ -17,7 +18,7 @@ def build(filename, name):
 def run(name):
     subprocess.run('./' + name, stdout=subprocess.DEVNULL)
     if subprocess.CompletedProcess:  # removes binary when subprocess is complete
-        subprocess.run(['rm', name])
+        Path(name).unlink()
     print(filename + ' binary file removed!')
 
 
