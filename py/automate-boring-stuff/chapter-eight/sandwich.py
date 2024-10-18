@@ -20,7 +20,7 @@ def sandwich_calculation(sandwich, extra, amount):
             print(key + str(sandwich_extra_prices[key]).rjust(15, '.'))
             sandwich_price += sandwich_extra_prices[key]
 
-    print('Price: %s PLN' % (sandwich_price * amount))
+    print('Price: %.2f PLN' % (sandwich_price * amount))
 
 
 sandwich_types = {}

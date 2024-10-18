@@ -26,12 +26,7 @@ def win_check(board):
 
     for y in range(len(converted_moves)):
         if converted_moves[y][0] and converted_moves[y][1] and converted_moves[y][2] == 'O':
-            print('Win')
-        if converted_moves[0][y] and converted_moves[1][y] and converted_moves[2][y] == 'O':
-            print('Win')
-        if converted_moves[0][0] and converted_moves[1][1] and converted_moves[2][2] == 'O':
-            print('Win')
-        # if converted_moves[2][2] and converted_moves[1][1] and converted_moves[0][2] == ''
+
 
 
 
