@@ -10,9 +10,9 @@ pygame.display.set_caption('pet bulbasaur!')
 clock = pygame.time.Clock()
 running = True
 
-game_font = pygame.font.Font('font/Roboto-Regular.ttf', 30)
+game_font = pygame.font.Font(Path('font/Roboto-Regular.ttf'), 30)
 
-bulb_surf = pygame.image.load('assets/bulb.png').convert_alpha()
+bulb_surf = pygame.image.load(Path('assets/bulb.png')).convert_alpha()
 bulb_rect = bulb_surf.get_rect(center = (320, 240))
 
 
