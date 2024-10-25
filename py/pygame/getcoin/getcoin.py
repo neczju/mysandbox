@@ -54,17 +54,18 @@ gameover_text = gameover_font.render('GAME OVER!', True, 'black')
 gameover_rect = gameover_text.get_rect(center = (400, 300))
 
 while running:
+    # Events
     for event in pygame.event.get():
         if event.type == pygame.WINDOWCLOSE:
             running = False
         if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
             running = False
-        if event.type == pygame.USEREVENT:
+        if event.type == pygame.USEREVENT:  # Decreases counter and checks if counter is 0
             counter -= 1
             if counter == 0:
                 gameover_sfx()
                 game_active = False
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE and not game_active:
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE and not game_active: # Resets gameplay
             game_active = True
             counter = 5
             player_score = 0
@@ -72,10 +73,11 @@ while running:
             player_rect = player_surf.get_rect(center = (screen.get_width() / 2, screen.get_height() / 2))
 
             
-
+    print(pygame.event.get())
+    # Gameplay
     if game_active:
+        # Background
         screen.fill('black')
-
         # Player movement
         keys = pygame.key.get_pressed()
         if keys[pygame.K_a]:
@@ -87,6 +89,7 @@ while running:
         if keys[pygame.K_s]:
             player_rect.y += round(player_speed * dt)
 
+        # Player play area clamp?
         if player_rect.left <= 0:
             player_rect.left = 0
         if player_rect.right >= screen.get_width():
@@ -96,12 +99,14 @@ while running:
         if player_rect.bottom >= screen.get_height():
             player_rect.bottom = screen.get_height()
 
+        # Coin pickup
         if player_rect.colliderect(coin_rect):
             counter = 5
             pickupcoin_sfx()
             coin_rect.topleft = (-100, -100)
             player_score += 1
 
+        # Draw player
         screen.blit(player_surf, player_rect)
 
         # Coin logic
@@ -111,13 +116,11 @@ while running:
         else:
             screen.blit(coin_surf, coin_rect)
 
-        # Update timer and core
+        # Update timer and score
         score_display('white')
         timer_display()
 
-        # Draw timer and core
-
-
+    # Game over
     else:
         screen.fill('white')
         score_display('black')
@@ -125,6 +128,6 @@ while running:
 
 
     pygame.display.update()
-    dt = clock.tick(60) / 1000
+    dt = clock.tick(60) / 1000 # Deltatime
 
 pygame.quit()
