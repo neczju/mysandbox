@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/home/neczju/projects/mysandbox/c/projects/gtk",
-  "command": "/usr/bin/cc  -isystem /usr/include/gtk-4.0 -isystem /usr/include/pango-1.0 -isystem /usr/include/fribidi -isystem /usr/include/harfbuzz -isystem /usr/include/gdk-pixbuf-2.0 -isystem /usr/include/webp -isystem /usr/include/cairo -isystem /usr/include/libxml2 -isystem /usr/include/freetype2 -isystem /usr/include/libpng16 -isystem /usr/include/pixman-1 -isystem /usr/include/graphene-1.0 -isystem /usr/lib64/graphene-1.0/include -isystem /usr/include/glib-2.0 -isystem /usr/lib64/glib-2.0/include -isystem /usr/include/libmount -isystem /usr/include/blkid -isystem /usr/include/sysprof-6 -mfpmath=sse -msse -msse2 -DWITH_GZFILEOP -pthread -o CMakeFiles/gtk_test.dir/hello-world-gtk.c.o -c /home/neczju/projects/mysandbox/c/projects/gtk/hello-world-gtk.c",
-  "file": "/home/neczju/projects/mysandbox/c/projects/gtk/hello-world-gtk.c",
-  "output": "CMakeFiles/gtk_test.dir/hello-world-gtk.c.o"
-}
-]
