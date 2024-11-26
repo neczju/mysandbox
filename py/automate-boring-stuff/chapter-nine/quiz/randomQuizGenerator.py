@@ -14,7 +14,8 @@ capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix',
             'Michigan': 'Lansing', 'Minnesota': 'Saint Paul', 'Mississippi': 'Jackson',
             'Missouri': 'Jefferson City', 'Montana': 'Helena', 'Nebraska': 'Lincoln',
             'Nevada': 'Carson City', 'New Hampshire': 'Concord', 'New Jersey': 'Trenton',
-            'Nowy Meksyk': 'Santa Fe', 'Nowy Jork': 'Albany', 'Karolina Północna': 'Raleigh','Dakota Północna': 'Bismarck', 'Ohio': 'Columbus', 'Oklahoma': 'Oklahoma City',
+            'Nowy Meksyk': 'Santa Fe', 'Nowy Jork': 'Albany', 'Karolina Północna': 'Raleigh',
+            'Dakota Północna': 'Bismarck', 'Ohio': 'Columbus', 'Oklahoma': 'Oklahoma City',
             'Oregon': 'Salem', 'Pensylwania': 'Harrisburg', 'Rhode Island': 'Providence',
             'Karolina Południowa': 'Columbia', 'Dakota Południowa': 'Pierre',
             'Tennessee': 'Nashville', 'Teksas': 'Austin', 'Utah': 'Salt Lake City',
@@ -43,17 +44,19 @@ for quizNum in range(35):
         correctAnswers = capitals[states[questionNum]]
         wrongAnswers = list(capitals.values())
         del wrongAnswers[wrongAnswers.index(correctAnswers)]
-        wrongAnswers = random.sample(wrongAnswers, 3) # 
+        wrongAnswers = random.sample(wrongAnswers, 3)
         answerOptions = wrongAnswers + [correctAnswers]
         random.shuffle(answerOptions)
 
         # Zapis pytania i odpowiedzi w pliku quizu.
-        quizFile.write(f'{questionNum + 1}. Co jest stolicą stanu {states[questionNum]}?\n')
+        quizFile.write(
+            f'{questionNum + 1}. Co jest stolicą stanu {states[questionNum]}?\n')
         for i in range(4):
-            quizFile.write(f"   {'ABCD'[i]}. {answerOptions[i]}\n")
+            quizFile.write(f"{'ABCD'[i]}. {answerOptions[i]}\n")
         quizFile.write('\n')
 
         # Zapis odpowiedzi w pliku.
-        answerKeyFile.write(f"{questionNum + 1}. {'ABCD'[answerOptions.index(correctAnswers)]} \n")
+        answerKeyFile.write(
+            f"{questionNum + 1}. {'ABCD'[answerOptions.index(correctAnswers)]} \n")
     quizFile.close()
     answerKeyFile.close()

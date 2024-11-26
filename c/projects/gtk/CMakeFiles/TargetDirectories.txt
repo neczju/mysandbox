@@ -1,0 +1,3 @@
+/home/neczju/projects/mysandbox/c/projects/gtk/CMakeFiles/gtk_test.dir
+/home/neczju/projects/mysandbox/c/projects/gtk/CMakeFiles/edit_cache.dir
+/home/neczju/projects/mysandbox/c/projects/gtk/CMakeFiles/rebuild_cache.dir

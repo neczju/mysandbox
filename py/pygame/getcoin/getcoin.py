@@ -73,7 +73,6 @@ while running:
             player_rect = player_surf.get_rect(center = (screen.get_width() / 2, screen.get_height() / 2))
 
             
-    print(pygame.event.get())
     # Gameplay
     if game_active:
         # Background
